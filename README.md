@@ -5,10 +5,8 @@ This is the complete Budget App project. Instructions for building your project 
 https://www.freecodecamp.org/learn/scientific-computing-with-python/scientific-computing-with-python-projects/budget-app
 
 ###  Some of additional features :
-#### -Using tupple to pass variable between functions
-#### -Using ternary operator to fix day and time calculation
-#### -Using pytest to create online progress test
-#### -self tester function to do pre test
+#### -Using local file to record transaction activities
+#### - 
 
 ### Test Scenario :
 1.Complete the Category class in budget.py. 
@@ -95,5 +93,4 @@ Write your code in budget.py. For development, you can use main.py to test your 
 ### Testing
 We imported the tests from test_module.py to main.py for your convenience. The tests will run automatically whenever you hit the "run" button.
 
-#### Test Result 
-![complete](complete.jpg)
+#### Test Result
