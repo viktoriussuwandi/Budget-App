@@ -1,19 +1,19 @@
 # Budget App
 #### Solution running on : https://replit.com/@ViktoriusSuwand/Budget-App
 
-This is the complete Budget App project. Instructions for building your project can be found at 
+This is the complete Budget App project. Instructions for building this project can be found at
 https://www.freecodecamp.org/learn/scientific-computing-with-python/scientific-computing-with-python-projects/budget-app
 
 ### Some of additional features :
-#### * Using local file to record transaction activities
-#### * 
+#### - Using local file to record transaction activities
+#### - 
 
 ### Test Scenario :
 1. Complete the `Category` class in `budget.py`.
-  - It should be able to instantiate objects based on different budget categories like `food`, `clothing`, and `entertainment`.
-  - When objects are created, they are passed in the name of the category.
-  - The class should have an instance variable called `ledger` that is a list.
-  - The class should also contain the following methods:
+   - It should be able to instantiate objects based on different budget categories like `food`, `clothing`, and `entertainment`.
+   - When objects are created, they are passed in the name of the category.
+   - The class should have an instance variable called `ledger` that is a list.
+   - The class should also contain the following methods:
 
 2. A `deposit` method that accepts an amount and description.
    - If no description is given, it should default to an empty string.
