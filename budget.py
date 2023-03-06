@@ -1,17 +1,12 @@
-import pandas, numpy
-pd = pandas()
-np = numpy()
+import pandas as pd
+import numpy  as np
 
 class Category:
-  def __init__(self) :
+  def __init__(self, category) :
     self.ledger = []
-    self.form    = { 
-      'Activity'    : '', 'Transaction' : False,
-      'Date'        : '', 'Category'    : '',
-      'Amount'      : 0 , 'Balance'     : 0, 
-      'Description' : '',
-    }
-    self.file_transaction = 'transaction.json'
+    self.category = category
+
+    self.file_transaction = 'data/transaction.json'
     self.file_report      = 'report.json'
     self.update_data()
 
@@ -19,8 +14,8 @@ class Category:
     data = self.ledger
     form = self.form
     form['Activity']    = 'deposit'
-    form['Transaction'] = False
-    form['Date']        = 'now'
+    form['status'] = False
+    form['Time']        = 'now'
     form['Category']    = cat
     form['Amount']      = amt
     form['Balance']     = self.get_balance(cat)
@@ -32,8 +27,8 @@ class Category:
     data = self.ledger
     form = self.form
     form['Activity']    = 'withdraw'
-    form['Transaction'] = False
-    form['Date']        = 'now'
+    form['status'] = False
+    form['Time']        = 'now'
     form['Category']    = cat
     form['Amount']      = amt
     form['Balance']     = self.get_balance(cat)
