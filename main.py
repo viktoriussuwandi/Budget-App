@@ -27,4 +27,10 @@ from budget import create_spend_chart
 # -----------------------------------------------------------------------------
 # ------------------------------------MY OWN CODE------------------------------
 # -----------------------------------------------------------------------------
+food = budget.Category("Food")
+print(food)
+food.deposit()
+food.withdraw()
+food.get_balance()
+food.transfer()
 

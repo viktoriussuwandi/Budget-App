@@ -5,7 +5,7 @@ This is the complete Budget App project. Instructions for building this project 
 https://www.freecodecamp.org/learn/scientific-computing-with-python/scientific-computing-with-python-projects/budget-app
 
 ### Some of additional features :
-    * Using local file to record transaction activities
+    * Using local file to maintain data, such as : transactions, and object categories.
     * Under development
 
 ### Test Scenario :
@@ -40,7 +40,7 @@ https://www.freecodecamp.org/learn/scientific-computing-with-python/scientific-c
   
 ![example1](example1.jpg)
 
-4. Besides the `Category` class, create a function (outside of the class) called `create_spend_chart` that takes a list of categories as an argument. 
+4. Besides the `Category` class, create a function (outside of the class) called `create_spend_chart` that takes a list of categories as an argument.
    - It should return a string that is a bar chart.
    - The chart should show the percentage spent in each category passed in to the function.
    - The percentage spent should be calculated only with withdrawals and not with deposits.

@@ -2,52 +2,31 @@ import pandas as pd
 import numpy  as np
 
 class Category:
-  def __init__(self, category) :
+  def __init__(self, category = None) :
     self.ledger = []
-    self.category = category
-
-    self.file_transaction = 'data/transaction.json'
-    self.file_report      = 'report.json'
+    self.category = category if category is not None else None
+    self.file = 'data/category.json'
     self.update_data()
 
-  def deposit (self, cat, amt, desc='') :
-    data = self.ledger
-    form = self.form
-    form['Activity']    = 'deposit'
-    form['status'] = False
-    form['Time']        = 'now'
-    form['Category']    = cat
-    form['Amount']      = amt
-    form['Balance']     = self.get_balance(cat)
-    form['Description'] = desc
-    self.update_data(form)
-    return form
-    
-  def withdraw (self, cat, amt, desc='') :
-    data = self.ledger
-    form = self.form
-    form['Activity']    = 'withdraw'
-    form['status'] = False
-    form['Time']        = 'now'
-    form['Category']    = cat
-    form['Amount']      = amt
-    form['Balance']     = self.get_balance(cat)
-    form['Description'] = desc
-    self.update_data(form)
-    return form
+  def update_data(self) :
+    print('Update data')
+  
+  def __str__(self):
+    return f'Printing {self.category}'
 
-  def get_balance (self, cat) :
-    data = self.ledger
-    deposit  = data['Amount']
-    withdraw = data['Amount']
-    balance  = deposit - widthdraw
+  def deposit (self) :
+    print('deposit')
     
-    # check balance, if correct -> return balance
-    # data_balance = check_funds()
-    return balance
+  def withdraw (self) :
+    print('widthdraw')
 
-  def transfer (self, amt, cat_from, cat_to, desc) :
-    pass
+  def get_balance (self) :
+    print('get balance')
+  
+  def transfer (self) :
+    print('transfer')
+
+
     
 def create_spend_chart(categories):
-  pass
+  print('create spend chart')

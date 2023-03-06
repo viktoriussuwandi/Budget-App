@@ -1,7 +1,7 @@
 class Transactions :
   def __init__(self) :
-    self.file = 'data/transactions'
     self.data = []
+    self.file = 'data/transactions.json'
     self.form    = { 
       'Activity'    : '', 'status' : False,
       'Time'        : '', 'Amount' : 0 , 
