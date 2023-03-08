@@ -43,8 +43,8 @@ def budget_app() :
   # clothing.withdraw(25.55)
   # clothing.withdraw(100)
   
-  # auto = budget.Category("Auto")
-  # auto.deposit(1000, "initial deposit")
+  auto = budget.Category("Auto")
+  auto.deposit(1000, "initial deposit")
   # auto.withdraw(15)
   # print(food)
   # print(clothing)
