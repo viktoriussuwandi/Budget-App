@@ -22,16 +22,11 @@ class Files :
     
   def save_data(self, form) :
     try :
-      category = form['category']
-      el = [ {key : val} for (key,val) in form.items() if key != 'category' ]
-      elements = { **[a for a in el] }
-      print(el)
-      print(elements)
-      form_saved = { category : elements }
-      self.data.append(form_saved)
+      self.refresh_data()
+      self.data.append(form)
       self.clear_file_content()
       with open(f"{self.file}","w") as file : 
-        json.dump(self.data, file, indent=4) 
+        json.dump(self.data, file, indent=4)
         return True
     except : return False
       
@@ -40,5 +35,15 @@ class Files :
       with open(self.file,"r") as file :
         file_size = os.path.getsize(self.file)
         self.data = json.load(file) if file_size > 0 else []
+        print(self.data)
     except FileNotFoundError : self.check_file(); self.refresh_data()
+
+# ---------------------------------------------------------------------
+# category = form['category']
+# elements = {}
+# key = [ key for (key,val) in form.items() if key != 'category' ]
+# val = [ val for (key,val) in form.items() if key != 'category' ]
+# for i in range(len(key)) : elements[f'{key[i]}'] = val[i]
+# form_saved = {category : elements}
+# self.data.append(form_saved)
   

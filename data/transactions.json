@@ -1,0 +1,18 @@
+[
+    {
+        "category": "Food",
+        "activity": "deposit",
+        "amount": 900,
+        "description": "deposit",
+        "status": true,
+        "balance": 0
+    },
+    {
+        "category": "Food",
+        "activity": "deposit",
+        "amount": 45.56,
+        "description": "",
+        "status": true,
+        "balance": 0
+    }
+]
