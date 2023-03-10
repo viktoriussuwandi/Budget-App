@@ -60,24 +60,57 @@ class Category :
 
     res = f'{title}\n{contents}'
     return res
-  
+
 def create_spend_chart(categories) :
   chart   = 'Percentage spent by category\n'
-  cat     = ''
-  categories = [str(c.category) for c in categories]
-  maxlenCat  = max( [ len(c) for c in categories ] )
-  print(maxlenCat)
-  for i in range(100,-10,-10) :
-    chart += str(f'{i}').ljust(3,' ') + '|'
-    chart += '\n'
-  
-  chart   += ''.join([' ' for i in range(3)])
-  chart   += ''.join(['-' for i in range(len(categories) + 1)])
-  chart   += '\n'
+  blank   = ' '
+  len_start_dots = len(str(100)) + 1
 
-  for c in range(categories) :
-    print(c)
+  # calculate withdrawal percentage----------------------------------------------
+  # food.withdraw(105.55)
+  # entertainment.withdraw(33.40)
+  # business.withdraw(10.99)
   
   
-  return chart
+  # print point axis------------------------------------------------------------
+  for i in range(100,-10,-10) :
+    chart += str(f'{i}').ljust(3,blank) + '|'
+    for c in range(len(categories)) :
+      cat = categories[c]
+      len_start_val   = 1 if c == 0 else 0
+      len_end_val     = 2
+      start_space_val = ''.join([' ' for s in range(len_start_val)])
+      end_space_val   = ''.join([' ' for s in range(len_end_val)])
+      chart += start_space_val
+      bal = round(cat.balance,0)
+      if bal >= i : chart += 'o'
+      else : chart += blank
+      chart += end_space_val
+    chart += '\n'
+
+  # print the dots------------------------------------------------------------
+  start_dots     = ''.join([blank for i in range(len_start_dots)])
+  len_dots       = pow(len(categories),2) + 1
+  dots           = ''.join(['-' for i in range(len_dots)])
+  chart         += start_dots + dots + '\n'
+
+  # print categories axis-----------------------------------------------------
+  categories = [str(c.category) for c in categories]
+  list = [ c.title() for c in categories]
+  maxlenCat  = max( [ len(l) for l in list ] )
+  cat_axis = ''
+  for m in range(maxlenCat) :
+    for i in range(len(list)) :
+      cat = list[i]
+      len_start_cat   = (len_start_dots + 1) if i == 0 else 0
+      len_end_cat     = 2
+      start_space_cat = ''.join([' ' for s in range(len_start_cat)])
+      end_space_cat   = ''.join([' ' for s in range(len_end_cat)])
+      cat_axis += start_space_cat
+      if m < len(cat) : cat_axis += f'{cat[m]}'
+      else : cat_axis += f'{blank}'
+      cat_axis += end_space_cat
+    cat_axis += '\n'
     
+  chart += cat_axis
+  return chart
