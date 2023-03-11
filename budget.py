@@ -63,38 +63,47 @@ class Category :
 
 def create_spend_chart(categories) :
   chart   = 'Percentage spent by category\n'
-  blank   = ' '
+  blank   = '.'
   len_start_dots = len(str(100)) + 1
 
-  # calculate withdrawal percentage----------------------------------------------
-  # food.withdraw(105.55)
-  # entertainment.withdraw(33.40)
-  # business.withdraw(10.99)
+  # calculate withdrawal percentage---------------------------------------
+  ledgers     = [ l for l in [ c.ledger for c in categories] ]
+  withdrawals = [ ]
+  for l in ledgers :
+    withdrawals.append([
+        dict['amount'] for dict in l if (
+        dict['amount'] < 0 and 'Transfer' not in dict['description']
+      )][0])
+  percents = [ 100*( w/sum(withdrawals) ) for w in withdrawals ]
+  
+  # print(json.dumps(ledgers,indent = 4))
+  # print(json.dumps(withdrawals,indent = 4))
+  # print(json.dumps(percents,indent = 4))
   
   
-  # print point axis------------------------------------------------------------
+  # print point axis------------------------------------------------------
   for i in range(100,-10,-10) :
-    chart += str(f'{i}').ljust(3,blank) + '|'
+    chart += str(f'{i}').rjust(3,blank) + '|'
     for c in range(len(categories)) :
       cat = categories[c]
       len_start_val   = 1 if c == 0 else 0
       len_end_val     = 2
-      start_space_val = ''.join([' ' for s in range(len_start_val)])
-      end_space_val   = ''.join([' ' for s in range(len_end_val)])
+      start_space_val = ''.join([blank for s in range(len_start_val)])
+      end_space_val   = ''.join([blank for s in range(len_end_val)])
       chart += start_space_val
-      bal = round(cat.balance,0)
-      if bal >= i : chart += 'o'
+      percent = round(percents[c],0)
+      if percent >= i : chart += 'o'
       else : chart += blank
       chart += end_space_val
     chart += '\n'
 
-  # print the dots------------------------------------------------------------
+  # print the dots--------------------------------------------------------
   start_dots     = ''.join([blank for i in range(len_start_dots)])
   len_dots       = pow(len(categories),2) + 1
   dots           = ''.join(['-' for i in range(len_dots)])
   chart         += start_dots + dots + '\n'
 
-  # print categories axis-----------------------------------------------------
+  # print categories axis-------------------------------------------------
   categories = [str(c.category) for c in categories]
   list = [ c.title() for c in categories]
   maxlenCat  = max( [ len(l) for l in list ] )
@@ -104,8 +113,8 @@ def create_spend_chart(categories) :
       cat = list[i]
       len_start_cat   = (len_start_dots + 1) if i == 0 else 0
       len_end_cat     = 2
-      start_space_cat = ''.join([' ' for s in range(len_start_cat)])
-      end_space_cat   = ''.join([' ' for s in range(len_end_cat)])
+      start_space_cat = ''.join([blank for s in range(len_start_cat)])
+      end_space_cat   = ''.join([blank for s in range(len_end_cat)])
       cat_axis += start_space_cat
       if m < len(cat) : cat_axis += f'{cat[m]}'
       else : cat_axis += f'{blank}'

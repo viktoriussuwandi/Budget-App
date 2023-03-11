@@ -5,8 +5,7 @@ This is the complete Budget App project. Instructions for building this project 
 https://www.freecodecamp.org/learn/scientific-computing-with-python/scientific-computing-with-python-projects/budget-app
 
 ### Some of additional features :
-    * Using local file to maintain data, such as : transactions, and object categories.
-    * Under development
+    * additional testing function on main.py
 
 ### Test Scenario :
 1. Complete the `Category` class in `budget.py`.
