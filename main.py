@@ -22,7 +22,7 @@ from unittest import main
 # print(create_spend_chart([food, clothing, auto]))
 
 # Run unit tests automatically
-# main(module='test_module', exit=False)
+main(module='test_module', exit=False)
 
 
 # -----------------------------------------------------------------------------
@@ -65,22 +65,10 @@ def budget_app() :
   business.withdraw(10.99)
   # create_spend_chart([business, food, entertainment])
   print(len(create_spend_chart([business, food, entertainment])))
-  print(len("Percentage spent by category\n100|          \n 90|          \n 80|          \n 70|    o     \n 60|    o     \n 50|    o     \n 40|    o     \n 30|    o     \n 20|    o  o  \n 10|    o  o  \n  0| o  o  o  \n    ----------\n     B  F  E  \n     u  o  n  \n     s  o  t  \n     i  d  e  \n     n     r  \n     e     t  \n     s     a  \n     s     i  \n           n  \n           m  \n           e  \n           n  \n           t  "))
+  print(len("Percentage spent by category\n100|..........\n.90|..........\n.80|..........\n.70|....o.....\n.60|....o.....\n.50|....o.....\n.40|....o.....\n.30|....o.....\n.20|....o..o..\n.10|....o..o..\n..0|.o..o..o..\n....----------\n.....B..F..E..\n.....u..o..n..\n.....s..o..t..\n.....i..d..e..\n.....n.....r..\n.....e.....t..\n.....s.....a..\n.....s.....i..\n...........n..\n...........m..\n...........e..\n...........n..\n...........t.."))
+  
   
   print(create_spend_chart([business, food, entertainment]))
-  print("Percentage spent by category\n100|          \n 90|          \n 80|          \n 70|    o     \n 60|    o     \n 50|    o     \n 40|    o     \n 30|    o     \n 20|    o  o  \n 10|    o  o  \n  0| o  o  o  \n    ----------\n     B  F  E  \n     u  o  n  \n     s  o  t  \n     i  d  e  \n     n     r  \n     e     t  \n     s     a  \n     s     i  \n           n  \n           m  \n           e  \n           n  \n           t  ")
+  print("Percentage spent by category\n100|..........\n.90|..........\n.80|..........\n.70|....o.....\n.60|....o.....\n.50|....o.....\n.40|....o.....\n.30|....o.....\n.20|....o..o..\n.10|....o..o..\n..0|.o..o..o..\n....----------\n.....B..F..E..\n.....u..o..n..\n.....s..o..t..\n.....i..d..e..\n.....n.....r..\n.....e.....t..\n.....s.....a..\n.....s.....i..\n...........n..\n...........m..\n...........e..\n...........n..\n...........t..")
   
-  # categories = ["food", "clothing", "Auto"]
-  # list = [ c.title() for c in categories]
-  # maxlenCat  = max( [ len(l) for l in list ] )
-  # blank      = ' '
-  # lines = ''
-  # for m in range(maxlenCat) :
-  #   for i in range(len(list)) :
-  #     cat = list[i]
-  #     if m < len(cat) : lines += f'{cat[m]} '
-  #     else : lines += f'{blank} '
-  #   lines += '\n'
-  # print(lines)
-  
-budget_app()
+# budget_app()

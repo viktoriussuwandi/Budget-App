@@ -6,6 +6,7 @@ https://www.freecodecamp.org/learn/scientific-computing-with-python/scientific-c
 
 ### Some of additional features :
     * additional testing function on main.py
+    * add inner adjustment to print the contents
 
 ### Test Scenario :
 1. Complete the `Category` class in `budget.py`.
